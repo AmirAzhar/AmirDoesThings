@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "841467166739",
+    "firebase_url": "https://amirdoesthings-1c213.firebaseio.com",
+    "project_id": "amirdoesthings-1c213",
+    "storage_bucket": "amirdoesthings-1c213.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841467166739:android:e439c7024e6ea17201bfe6",
+        "android_client_info": {
+          "package_name": "com.example.amirdoesthings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841467166739-atp31mj8bpck943bqk1dubatgfeevd78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClz6ZueJKY17Xt33Uk3g0W31sf37UmzQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841467166739-atp31mj8bpck943bqk1dubatgfeevd78.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
