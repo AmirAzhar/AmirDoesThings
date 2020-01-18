@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tasksList = findViewById(R.id.taskList);
 
         tasks = StorageHelper.readData(this);
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,tasks);
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,tasks); //converts ArrayList into a View object
         tasksList.setAdapter(arrayAdapter);
 
         btn.setOnClickListener(this);
-        tasksList.setOnItemClickListener(this);
+        tasksList.setOnItemClickListener(this); //for arrayAdapter, to do sth when item is clicked
     }
 
     //save wtv that is typed into the editText into the Arraylist
@@ -56,10 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //delete item when clicked
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         tasks.remove(position);
-        arrayAdapter.notifyDataSetChanged();
+        arrayAdapter.notifyDataSetChanged(); //refereh the data in the arrayadapter
         Toast.makeText(this, "Task successfully deleted!", Toast.LENGTH_SHORT).show();
     }
 }

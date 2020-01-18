@@ -17,7 +17,7 @@ public class StorageHelper {
 
     public static void writeData(ArrayList<String> items, Context context) {
         try {
-            FileOutputStream fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            FileOutputStream fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE); //to allow writing to a file
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(items);
             oos.close();
@@ -31,7 +31,7 @@ public class StorageHelper {
     public static ArrayList<String> readData(Context context) {
         ArrayList<String> itemsList = null;
         try {
-            FileInputStream fis = context.openFileInput(FILENAME);
+            FileInputStream fis = context.openFileInput(FILENAME); //to allow reading a file
             ObjectInputStream ois = new ObjectInputStream(fis);
             itemsList = (ArrayList<String>) ois.readObject();
         } catch (FileNotFoundException e) {
