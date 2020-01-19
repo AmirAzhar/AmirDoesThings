@@ -2,6 +2,7 @@ package com.example.amirdoesthings;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,8 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText editText;
     private Button btn;
     private ListView tasksList;
+    private FloatingActionButton fab;
 
     private ArrayList<String> tasks;
     private ArrayAdapter<String> arrayAdapter; //a tool for android studio to fill in lists
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editText = findViewById(R.id.addTaskText);
         btn = findViewById(R.id.addTaskButton);
         tasksList = findViewById(R.id.taskList);
+        fab = findViewById(R.id.floatingActionButton);
 
         tasks = StorageHelper.readData(this);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,tasks); //converts ArrayList into a View object
@@ -38,6 +43,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btn.setOnClickListener(this);
         tasksList.setOnItemClickListener(this); //for arrayAdapter, to do sth when item is clicked
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddTaskActivity();
+            }
+        });
+    }
+
+    private void openAddTaskActivity() {
+        Intent intent = new Intent(this, AddTaskActivity.class);
+        startActivity(intent);
     }
 
     //save wtv that is typed into the editText into the Arraylist
