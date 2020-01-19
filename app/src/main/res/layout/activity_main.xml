@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,28 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp">
-
-        <EditText
-            android:id="@+id/addTaskText"
-            android:layout_width="8dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:hint="@string/add_task" />
-
-        <Button
-            android:id="@+id/addTaskButton"
-            android:layout_width="8dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/enter" />
-
-    </LinearLayout>
 
     <ListView
         android:id="@+id/taskList"
@@ -40,14 +18,13 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="59dp"
         android:layout_height="49dp"
-        android:layout_gravity="end"
+        android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_add"
         app:fabCustomSize="50dp"
-        app:elevation="20dp"
-        android:onClick="addTask"/>
+        app:elevation="20dp"/>
 
 
-</LinearLayout>
+</FrameLayout>

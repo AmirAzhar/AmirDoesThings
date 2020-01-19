@@ -17,7 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private EditText editText;
     private Button btn;
@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editText = findViewById(R.id.addTaskText);
-        btn = findViewById(R.id.addTaskButton);
         tasksList = findViewById(R.id.taskList);
         fab = findViewById(R.id.floatingActionButton);
 
@@ -41,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,tasks); //converts ArrayList into a View object
         tasksList.setAdapter(arrayAdapter);
 
-        btn.setOnClickListener(this);
         tasksList.setOnItemClickListener(this); //for arrayAdapter, to do sth when item is clicked
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,21 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
-    //save wtv that is typed into the editText into the Arraylist
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.addTaskButton:
-                String newTask = editText.getText().toString();
-                arrayAdapter.add(newTask);
-                editText.setText(""); // change the edit text to empty after entering
-
-                StorageHelper.writeData(tasks,this);
-
-                Toast.makeText(this, "Task successfully added!", Toast.LENGTH_SHORT).show();
-                break;
-        }
-    }
 
     //delete item when clicked
     @Override
@@ -78,5 +60,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tasks.remove(position);
         arrayAdapter.notifyDataSetChanged(); //refresh the data in the arrayadapter
         Toast.makeText(this, "Task successfully deleted!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
