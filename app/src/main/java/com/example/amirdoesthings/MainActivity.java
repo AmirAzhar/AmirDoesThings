@@ -21,11 +21,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText editText;
     private Button btn;
-    private ListView tasksList;
+    public static ListView tasksList;
     private FloatingActionButton fab;
 
-    private ArrayList<String> tasks;
-    private ArrayAdapter<String> arrayAdapter; //a tool for android studio to fill in lists
+    public static ArrayList<String> tasks;
+    public static ArrayAdapter<String> arrayAdapter; //a tool for android studio to fill in lists
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 StorageHelper.writeData(tasks,this);
 
-                Toast.makeText(this, "Successfully added task!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Task successfully added!", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         tasks.remove(position);
-        arrayAdapter.notifyDataSetChanged(); //refereh the data in the arrayadapter
+        arrayAdapter.notifyDataSetChanged(); //refresh the data in the arrayadapter
         Toast.makeText(this, "Task successfully deleted!", Toast.LENGTH_SHORT).show();
     }
 }
