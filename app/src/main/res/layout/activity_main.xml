@@ -16,15 +16,15 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_width="59dp"
-        android:layout_height="49dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_add"
-        app:fabCustomSize="50dp"
-        app:elevation="20dp"/>
+        app:fabCustomSize="70dp"
+        app:elevation="20dp" />
 
 
 </FrameLayout>

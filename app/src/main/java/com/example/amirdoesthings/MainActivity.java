@@ -61,9 +61,4 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         arrayAdapter.notifyDataSetChanged(); //refresh the data in the arrayadapter
         Toast.makeText(this, "Task successfully deleted!", Toast.LENGTH_SHORT).show();
     }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
-    }
 }
